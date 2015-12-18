@@ -38,4 +38,17 @@ export CATALINA_BASE=~/tomcat
 # Nodejs setting
 PATH=$PATH:/usr/local/node-v4.2.3/bin
 
+# Set environment variables if user's agent already exists
+[ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=$(ls -l /tmp/ssh-*/agent.* 2> /dev/null | grep $(whoami) | awk '{print $9}')
+[ -z "$SSH_AGENT_PID" -a $((`echo $SSH_AUTH_SOCK | cut -d\. -f2`)) -gt 0 ] \
+				&& SSH_AGENT_PID=$((`echo $SSH_AUTH_SOCK | cut -d. -f2` + 1))
+[ -n "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK
+[ -n "$SSH_AGENT_PID" ] && export SSH_AGENT_PID
+# Start agent if necessary
+if [ -z $SSH_AGENT_PID ] ; then  # if no agent
+  eval `ssh-agent -s` > /dev/null
+	# You may need to generate ssh key by `ssh-keygen -t rsa -b 4096 -C "mail@host.domain"`
+	# and add it to ssh-agent by `ssh-add ~/.ssh/id_rsa`
+fi
+
 export PATH
