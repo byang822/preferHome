@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/sqlplus system/src@orcl @/usr/lib/oracle/11.2/client/local/refreshUser.sql $USER

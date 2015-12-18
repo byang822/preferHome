@@ -1,0 +1,6 @@
+
+# ctl+o to enumerate the files/folders 
+# For example, use input 'ls .*' then press ctl+o to enumerate the hidden files.
+'\C-o':menu-complete
+
+#run bind -f .inputrc after updating
