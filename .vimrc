@@ -8,11 +8,12 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 "
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plugin 'VundleVim/Vundle.vim'
 Plugin 'moll/vim-node' 
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+Plugin 'elzr/vim-json'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -57,6 +58,8 @@ set ts=2
 autocmd FileType conf setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*#.*'
 autocmd FileType dosini setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*#.*'
 autocmd FileType yaml setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*\\#.*'
+
+autocmd FileType html setlocal equalprg=tidy\ -config\ ~/.tidyrc\ -quiet
 
 if has("gui_running")
   colorscheme default
