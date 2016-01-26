@@ -40,8 +40,9 @@ PATH=$PATH:/usr/local/node-v4.2.3/bin
 
 # Set environment variables if user's agent already exists
 [ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=$(ls -l /tmp/ssh-*/agent.* 2> /dev/null | grep $(whoami) | awk '{print $9}')
-[ -z "$SSH_AGENT_PID" -a $((`echo $SSH_AUTH_SOCK | cut -d\. -f2`)) -gt 0 ] \
-				&& SSH_AGENT_PID=$((`echo $SSH_AUTH_SOCK | cut -d. -f2` + 1))
+if [ -z "$SSH_AGENT_PID" -a $((`echo $SSH_AUTH_SOCK | cut -d. -f2`)) -gt 0 ]; then
+  SSH_AGENT_PID=$((`echo $SSH_AUTH_SOCK | cut -d. -f2` + 1))
+fi
 [ -n "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK
 [ -n "$SSH_AGENT_PID" ] && export SSH_AGENT_PID
 # Start agent if necessary

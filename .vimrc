@@ -68,3 +68,9 @@ else
   colorscheme solarized
 endif
 
+" rebind up, down, left, right
+" now use 'h' to get in insert mode
+noremap i k
+noremap k j
+noremap j h
+noremap h i
