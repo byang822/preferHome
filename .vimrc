@@ -9,6 +9,7 @@ call vundle#begin()
 "
 " let Vundle manage Vundle, required
 " Plugin 'VundleVim/Vundle.vim'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'moll/vim-node' 
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
@@ -74,3 +75,5 @@ noremap i k
 noremap k j
 noremap j h
 noremap h i
+
+set pastetoggle=<F10>
