@@ -76,4 +76,6 @@ noremap k j
 noremap j h
 noremap h i
 
+" use F10 to toggle on/off paste mode, if paste mode is on, autoindent will be
+" disabled
 set pastetoggle=<F10>
