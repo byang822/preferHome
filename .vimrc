@@ -51,6 +51,7 @@ map <c-f> :call JsBeautify()<cr>
 
 set nu
 set ts=2
+set ignorecase
 " detect file type by ':set filetype?'
 " 'z+r' -> collapse all
 " 'z+m' -> expand all
