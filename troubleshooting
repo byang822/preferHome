@@ -1,0 +1,30 @@
+:samba
+# Share user home by samba:
+setsebool -P samba_enable_home_dirs on
+
+:git
+# After 'git clone'
+# Branches is invisible except master, then you can checkout remote branches by
+git checkout -b dev origin/dev
+
+:git
+# create new branch feature-branch base on develop
+git checkout -b feature-branch develop
+
+:openssl
+# fetch ssl certificate
+openssl s_client -connect your.server:8080 </dev/null | sed -ne '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p' > server.crt
+
+:keytool
+# then import the certificate to keystore file
+keytool --import -file server.crt -keystore existing.truststore -alias server-name-port
+
+:postgres
+# listen on all interface
+vi /var/lib/pgsql/9.4/data/postgresql.conf 
+>listen_addresses='*'
+# specify trusted ip segment
+vi /var/lib/pgsql/9.4/data/pg_hba.conf
+>host    all             all             15.107.0.0/16            trust
+
+

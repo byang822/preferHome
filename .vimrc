@@ -9,6 +9,7 @@ call vundle#begin()
 "
 " let Vundle manage Vundle, required
 " Plugin 'VundleVim/Vundle.vim'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'moll/vim-node' 
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
@@ -50,6 +51,7 @@ map <c-f> :call JsBeautify()<cr>
 
 set nu
 set ts=2
+set ignorecase
 " detect file type by ':set filetype?'
 " 'z+r' -> collapse all
 " 'z+m' -> expand all
@@ -68,3 +70,13 @@ else
   colorscheme solarized
 endif
 
+" rebind up, down, left, right
+" now use 'h' to get in insert mode
+noremap i k
+noremap k j
+noremap j h
+noremap h i
+
+" use F10 to toggle on/off paste mode, if paste mode is on, autoindent will be
+" disabled
+set pastetoggle=<F10>
