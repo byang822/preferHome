@@ -5,11 +5,6 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias vi='vim'
-
 # Do not record the commands which start with space in bash history
 export HISTCONTROL=ignorespace
 
