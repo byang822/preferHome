@@ -72,10 +72,10 @@ endif
 
 " rebind up, down, left, right
 " now use 'h' to get in insert mode
-noremap i k
-noremap k j
-noremap j h
-noremap h i
+" noremap i k
+" noremap k j
+" noremap j h
+" noremap h i
 
 " use F10 to toggle on/off paste mode, if paste mode is on, autoindent will be
 " disabled
