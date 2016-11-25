@@ -51,7 +51,15 @@ map <c-f> :call JsBeautify()<cr>
 
 set nu
 set ts=2
+" or set ic/noic
+" /search\C case sensitive
+" /search\c case insensitive
 set ignorecase
+
+" insert space characters whenever the tab key is pressed
+" existing tab is not affected, use :retab to convert exsiting tab
+set expandtab
+
 " detect file type by ':set filetype?'
 " 'z+r' -> collapse all
 " 'z+m' -> expand all
