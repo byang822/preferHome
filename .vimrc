@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 " Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'moll/vim-node' 
+Plugin 'moll/vim-node'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
@@ -88,3 +88,10 @@ endif
 " use F10 to toggle on/off paste mode, if paste mode is on, autoindent will be
 " disabled
 set pastetoggle=<F10>
+" With :set hidden, opening a new file when the current buffer has unsaved
+" changes causes files to be hidden instead of closed
+set hidden
+" shift+h previous buffer
+map <S-h> :bprev<Return>
+" shift+l next buffer
+map <S-l> :bnext<Return>
