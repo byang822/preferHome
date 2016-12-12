@@ -1,4 +1,5 @@
 # Allow bold colors - necessary for some reason
+term xterm-256color
 attrcolor b ".I"
 attrcolor u "-u B"
 startup_message off
