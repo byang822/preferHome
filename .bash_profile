@@ -11,6 +11,7 @@ export HISTCONTROL=ignorespace
 # The proxy settings
 export http_proxy=http://web-proxy.sgp.hp.com:8080
 export https_proxy=http://web-proxy.sgp.hp.com:8080
+export no_proxy="*.hp.com, *.hpe.com, *.hpeswlab.net"
 
 # Display char setting
 export LANG="en_US.utf-8"
