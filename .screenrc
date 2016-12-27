@@ -1,5 +1,7 @@
 # Allow bold colors - necessary for some reason
-term xterm-256color
+# term xterm-256color
+# customize xterm color in secureCRT
+term xterm
 attrcolor b ".I"
 attrcolor u "-u B"
 startup_message off
