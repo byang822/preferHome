@@ -1,14 +1,12 @@
-# Allow bold colors - necessary for some reason
-# term xterm-256color
 # customize xterm color in secureCRT
 term xterm
 # http://stackoverflow.com/a/37863269/5153834
-# fix the issue of vim color scheme remains after vim exit.
+# fix: vim color scheme remains after vim exit.
 altscreen on
 attrcolor b ".I"
 attrcolor u "-u B"
 startup_message off
-# Cache 30000 lines for scroll back
+# Cache 10000 lines for scroll back
 defscrollback 10000
 # /C+a l : list windows
 bind l windowlist -b
