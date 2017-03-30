@@ -2,6 +2,9 @@
 # term xterm-256color
 # customize xterm color in secureCRT
 term xterm
+# http://stackoverflow.com/a/37863269/5153834
+# fix the issue of vim color scheme remains after vim exit.
+altscreen on
 attrcolor b ".I"
 attrcolor u "-u B"
 startup_message off
