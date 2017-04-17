@@ -11,7 +11,7 @@ export HISTCONTROL=ignorespace
 # The proxy settings
 export http_proxy=http://web-proxy.sgp.hp.com:8080
 export https_proxy=http://web-proxy.sgp.hp.com:8080
-export no_proxy="*.hp.com, *.hpe.com, *.hpeswlab.net"
+export no_proxy="*.hp.com, *.hpe.com, *.hpeswlab.net, localhost"
 
 # Display char setting
 export LANG="en_US.utf-8"
@@ -49,3 +49,7 @@ if [ -z $SSH_AGENT_PID ] ; then  # if no agent
 fi
 
 export PATH
+if ! [ -z "$PS1" ]; then
+  # interactive shell
+  export CDPATH=.:~
+fi
