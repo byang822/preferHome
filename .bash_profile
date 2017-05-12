@@ -5,24 +5,19 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias vi='vim'
-
 # Do not record the commands which start with space in bash history
 export HISTCONTROL=ignorespace
 
 # The proxy settings
-export http_proxy=http://web-proxy.sgp.hp.com:8080
-export https_proxy=http://web-proxy.sgp.hp.com:8080
+export http_proxy=http://web-proxy.example.com:8080
+export https_proxy=http://web-proxy.example.com:8080
+export no_proxy="*.example.com, localhost"
 
 # Display char setting
 export LANG="en_US.utf-8"
 
 # SM configure need ORACLE_HOME to connect to oracle DB
 #export ORACLE_HOME=/usr/lib/oracle/11.2/client
-#export SM=/opt/HP/SM
 #PATH=$PATH:$SM/RUN
 
 # JAVA setting
@@ -52,4 +47,11 @@ if [ -z $SSH_AGENT_PID ] ; then  # if no agent
 	# and add it to ssh-agent by `ssh-add ~/.ssh/id_rsa`
 fi
 
+# search . and $HOME when you are calling cd
+if ! [ -z "$PS1" ]; then
+  # take effect in interactive shell only
+  export CDPATH=.:~
+fi
+
 export PATH
+

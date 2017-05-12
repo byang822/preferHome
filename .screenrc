@@ -1,0 +1,18 @@
+# customize xterm color in secureCRT
+term xterm
+# http://stackoverflow.com/a/37863269/5153834
+# fix: vim color scheme remains after vim exit.
+altscreen on
+attrcolor b ".I"
+attrcolor u "-u B"
+startup_message off
+# Cache 10000 lines for scroll back
+defscrollback 10000
+# /C+a l : list windows
+bind l windowlist -b
+# always show status bar
+hardstatus alwayslastline
+# disable vbell
+vbell off
+autodetach on
+hardstatus string '%{= kG}[%H][ %Y/%m/%d %{G}%c ]'

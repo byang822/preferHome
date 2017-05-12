@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 " Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'moll/vim-node' 
+Plugin 'moll/vim-node'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
@@ -51,7 +51,15 @@ map <c-f> :call JsBeautify()<cr>
 
 set nu
 set ts=2
+" or set ic/noic
+" /search\C case sensitive
+" /search\c case insensitive
 set ignorecase
+
+" insert space characters whenever the tab key is pressed
+" existing tab is not affected, use :retab to convert exsiting tab
+set expandtab
+
 " detect file type by ':set filetype?'
 " 'z+r' -> collapse all
 " 'z+m' -> expand all
@@ -72,11 +80,18 @@ endif
 
 " rebind up, down, left, right
 " now use 'h' to get in insert mode
-noremap i k
-noremap k j
-noremap j h
-noremap h i
+" noremap i k
+" noremap k j
+" noremap j h
+" noremap h i
 
 " use F10 to toggle on/off paste mode, if paste mode is on, autoindent will be
 " disabled
 set pastetoggle=<F10>
+" With :set hidden, opening a new file when the current buffer has unsaved
+" changes causes files to be hidden instead of closed
+set hidden
+" shift+h previous buffer
+map <S-h> :bprev<Return>
+" shift+l next buffer
+map <S-l> :bnext<Return>
