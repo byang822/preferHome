@@ -15,4 +15,5 @@ hardstatus alwayslastline
 # disable vbell
 vbell off
 autodetach on
-hardstatus string '%{= kG}[%H][ %Y/%m/%d %{G}%c ]'
+hardstatus string '%{= kY} [ %-Lw%{= bW}%n%f %t%{-}%+Lw ] %=%Y/%m/%d %c '
+
