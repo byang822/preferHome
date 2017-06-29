@@ -8,13 +8,16 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 "
 " let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'moll/vim-node'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
-Plugin 'elzr/vim-json'
+"Plugin 'moll/vim-node'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'maksimr/vim-jsbeautify'
+"Plugin 'elzr/vim-json'
+" for yaml file editing, You can tell vim to recognize a file as Ansible by
+" adding a modeline near the top or bottom of the file:
+" # vim:ft=ansible:
+"Plugin 'chase/vim-ansible-yaml'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -47,7 +50,13 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " format javascript by ctrl-f
-map <c-f> :call JsBeautify()<cr>
+" map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 
 set nu
 set ts=2
@@ -70,6 +79,9 @@ autocmd FileType dosini setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s
 autocmd FileType yaml setlocal foldmethod=expr foldexpr=getline(v:lnum)=~'^\\s*\\#.*'
 
 autocmd FileType html setlocal equalprg=tidy\ -config\ ~/.tidyrc\ -quiet
+
+" config for specific file type
+"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 if has("gui_running")
   colorscheme default
